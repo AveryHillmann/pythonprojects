@@ -1,0 +1,28 @@
+from replit import clear
+
+bidders = {}
+
+def get_bid():
+  name = input("What is your name: ")
+  bid_amount = int(input("How much do you want to bid: $"))
+  bidders[name] = bid_amount
+
+  again = (input("Is there another user who wants to bid? 'yes' or 'no'")).lower()
+  if again == "yes":
+    clear()
+    get_bid()
+  else:
+    highest_bid = 0
+    winner = "none"
+    for bid in bidders:
+      if bidders[bid] > highest_bid:
+        highest_bid = bidders[bid]
+        winner = bid
+        
+
+    print(f"The winner is {winner} with ${highest_bid}")
+
+
+get_bid()
+    
+  
